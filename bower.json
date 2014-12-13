@@ -1,0 +1,17 @@
+{
+  "name": "pxl",
+  "version": "0.0.1",
+  "authors": [
+    "marsfromlars@gmail.com"
+  ],
+  "description": "pixels painted, pixels animated",
+  "license": "LGPL 2.0",
+  "homepage": "https://github.com/marsfromlars/pxl.git",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
