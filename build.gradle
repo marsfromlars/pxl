@@ -7,6 +7,30 @@
  * user guide available at http://gradle.org/docs/2.1/userguide/tutorial_java_projects.html
  */
 
+apply plugin: 'jetty'
+apply plugin: 'war'
+
+def warArchiveName = 'pxl.war'
+httpPort = 8091
+stopPort = 8092
+stopKey = 10
+
+// open the browser with the url (TODO: let it wait a second, so we don't new RELOAD page)
+task openUrlInBrowser << {
+   java.awt.Desktop.desktop.browse "http://localhost:8091/pxl".toURI()
+}
+jettyRun.dependsOn openUrlInBrowser
+jettyRunWar.dependsOn openUrlInBrowser
+
+war {
+	archiveName = warArchiveName
+	from( '.' ) {
+		include 'bower_components/**'
+		exclude 'bower_components/jquery/src/**'
+	}
+}
+
+
 /*
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
